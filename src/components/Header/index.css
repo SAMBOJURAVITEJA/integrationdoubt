@@ -1,0 +1,23 @@
+.headerContainer {
+  padding-left: 0px;
+  padding: 5px;
+  list-style-type: none;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+.HeaderImg {
+  width: 65px;
+}
+.LogOutBtn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: blue;
+  color: #ffffff;
+}

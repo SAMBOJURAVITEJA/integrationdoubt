@@ -1,0 +1,12 @@
+.homeContainer {
+  height: 100vh;
+  font-weight: bold;
+  font-family: 'Roboto';
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #64748b;
+  color: #ffffff;
+}

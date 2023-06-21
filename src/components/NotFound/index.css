@@ -1,0 +1,10 @@
+.NotFoundContainer {
+  height: 100vh;
+  font-weight: bold;
+  font-family: 'Roboto';
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
