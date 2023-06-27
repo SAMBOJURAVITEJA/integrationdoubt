@@ -66,6 +66,7 @@ class SignUpForm extends Component {
       body: JSON.stringify(userDetails),
       headers: {
         'Content-Type': 'application/json',
+            Accept:"application/json",
       },
     }
     const response = await fetch(url, options)
