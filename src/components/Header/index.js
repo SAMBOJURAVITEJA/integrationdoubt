@@ -19,13 +19,58 @@ const Header = props => {
           />
         </li>
       </Link>
-      <li>Reseller</li>
-      <li>Services</li>
-      <li>Products</li>
-      <li>Support</li>
-      <li>Blogs</li>
-      <li>About Us</li>
-      <li>Locations</li>
+      <li>
+        <select className="headerSelect">
+          <option>Reseller</option>
+          <option>Polarion</option>
+          <option>Mendix</option>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>Services</option>
+          <option>Polarion ALM</option>
+          <option>SAAS & Cloud Solutions</option>
+          <option>PTC Integrity</option>
+          <option>Mendix</option>
+          <option>Training</option>
+          <option>Hoisting</option>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>Integration</option>
+          <option>Custom Plugins</option>
+          <option>Templates</option>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>Support</option>
+          <option>Technical Support</option>
+          <option>Sales Support</option>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>Blogs</option>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>About Us</option>
+          <option>Career</option>
+          <options>Customers</options>
+        </select>
+      </li>
+      <li>
+        <select className="headerSelect">
+          <option>Locations</option>
+          <option>India</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+        </select>
+      </li>
       <li>
         <button className="LogOutBtn" onClick={LogOut} type="button">
           LogOut

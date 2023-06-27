@@ -1,11 +1,13 @@
-import Header from '../Header'
 import './index.css'
 
 const NotFound = () => (
   <>
-    <Header />
     <div className="NotFoundContainer">
-      <h1>Not Found</h1>
+      <img
+        className="notFoundImg"
+        src="https://assets.ccbp.in/frontend/react-js/not-found-blog-img.png"
+        alt=""
+      />
     </div>
   </>
 )

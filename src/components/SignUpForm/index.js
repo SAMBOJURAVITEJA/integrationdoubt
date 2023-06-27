@@ -1,5 +1,7 @@
 import {Component} from 'react'
-import Header from '../Header'
+
+import {Redirect, Link} from 'react-router-dom'
+import Cookies from 'js-cookie'
 
 import './index.css'
 
@@ -9,8 +11,10 @@ class SignUpForm extends Component {
     password: '',
     location: '',
     phoneNumber: '',
-    gender: '',
-    education: '',
+    gender: 'MALE',
+    education: 'B.TECH/B.E',
+    errorMsg: '',
+    showSubmitError: false,
   }
 
   onChangePhoneNumber = event => {
@@ -55,15 +59,23 @@ class SignUpForm extends Component {
       education,
       phoneNumber,
     }
-    const url = 'https://apis.ccbp.in/register'
+
+    const url = 'https://railway-production-c6e6.up.railway.app/register'
     const options = {
       method: 'POST',
       body: JSON.stringify(userDetails),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     }
     const response = await fetch(url, options)
+    const data = await response.json()
+    console.log(JSON.stringify(userDetails), response, 'signUp', data)
     if (response.ok === true) {
       const {history} = this.props
       history.push('/signIn')
+    } else {
+      this.setState({errorMsg: data.error_msg, showSubmitError: true})
     }
   }
 
@@ -132,7 +144,7 @@ class SignUpForm extends Component {
         <select
           value={education}
           id="educationQualification"
-          onChange={this.changeEducation}
+          onChange={this.onChangeEducation}
         >
           <option value="B.TECH/B.E">B.TECH/B.E</option>
           <option value="OtherDegree">OtherDegree</option>
@@ -153,7 +165,7 @@ class SignUpForm extends Component {
           id="location"
           className="location-input-field"
           value={Location}
-          onChange={this.onChangeUsername}
+          onChange={this.onChangeLocation}
           placeholder="Location"
         />
       </>
@@ -181,16 +193,24 @@ class SignUpForm extends Component {
   }
 
   render() {
+    const {errorMsg, showSubmitError} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
+
     return (
       <>
-        <Header />
         <div className="login-form-container">
-          <form className="form-container" onSubmit={this.submitForm}>
-            <img
-              src="https://res.cloudinary.com/dkajxnnlq/image/upload/v1687359765/logo_uo5ias.png"
-              className="login-website-logo-desktop-img"
-              alt="website logo"
-            />
+          <form className="form-container signup" onSubmit={this.submitForm}>
+            <Link to="/signIn">
+              <img
+                src="https://res.cloudinary.com/dkajxnnlq/image/upload/v1687359765/logo_uo5ias.png"
+                className="login-website-logo-desktop-img"
+                alt="website logo"
+              />
+            </Link>
             <div className="input-container">{this.renderUsernameField()}</div>
             <div className="input-container">{this.renderPasswordField()}</div>
             <div className="input-container">{this.renderPhoneNumber()}</div>
@@ -201,9 +221,12 @@ class SignUpForm extends Component {
             <div className="input-container">
               {this.renderLocationDetails()}
             </div>
+
             <button type="submit" className="login-button">
               SignUp
             </button>
+
+            {showSubmitError && <p className="error-message">*{errorMsg}</p>}
           </form>
         </div>
       </>

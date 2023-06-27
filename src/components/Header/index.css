@@ -8,6 +8,14 @@
   background-color: white;
   font-family: 'Roboto';
   font-weight: bold;
+  width: 100%;
+}
+.headerSelect {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 100px;
+  background-color: transparent;
 }
 .HeaderImg {
   width: 65px;

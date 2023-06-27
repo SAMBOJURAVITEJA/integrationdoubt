@@ -1,10 +1,10 @@
 .NotFoundContainer {
   height: 100vh;
-  font-weight: bold;
-  font-family: 'Roboto';
-  background-color: gray;
+  background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: #ffffff;
+  align-items: center;
+}
+.notFoundImg {
+  width: 30%;
 }

@@ -1,6 +1,7 @@
 import './App.css'
 
 import {BrowserRouter, Redirect, Switch, Route} from 'react-router-dom'
+import Forgot from './components/Forgot'
 
 import ProtectedRoute from './components/ProtectedRoute/index'
 
@@ -19,6 +20,7 @@ const App = () => (
       <ProtectedRoute exact path="/" component={Home} />
       <Route exact path="/signUp" component={SignUpForm} />
       <Route exact path="/not-found" component={NotFound} />
+      <Route exact path="/forgot-password" component={Forgot} />
       <Redirect to="/not-found" />
     </Switch>
   </BrowserRouter>
