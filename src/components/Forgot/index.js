@@ -33,7 +33,7 @@ class Forgot extends Component {
     console.log('reset')
     const {username, password} = this.state
     const userDetails = {username, password}
-    const url = 'https://orridevudoy.onrender.com/forgotPassword'
+    const url = 'https://railway-production-c6e6.up.railway.app/forgotPassword'
     const options = {
       method: 'PUT',
       body: JSON.stringify(userDetails),
